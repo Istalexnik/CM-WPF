@@ -14,13 +14,7 @@
 
         <ComboBox Name="cbxSite" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbxSite_SelectionChanged" >
         </ComboBox>
-        <ComboBox Name="cbxClaimType" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Regular" IsSelected="True"/>
-            <ComboBoxItem Content="UCX"/>
-            <ComboBoxItem Content="UCFE"/>
-            <ComboBoxItem Content="CWC"/>
-            <ComboBoxItem Content="Alien"/>
-            <ComboBoxItem Content="PUA"/>
+        <ComboBox Name="cbxClaimType" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbxClaimType_SelectionChanged">
         </ComboBox>
         <Label Name="lblSSN" Content="SSN:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <Label Name="lblFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>

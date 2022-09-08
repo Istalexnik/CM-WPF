@@ -23,6 +23,7 @@ namespace CM_WPF
     {
         Thread thread;
         List<Environment> envs = Environment.createEnvironments();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +36,12 @@ namespace CM_WPF
             {
                 cbxSite.Items.Add(v.siteName);             
             }
+            for(int i=0; i < Data.claimType.Length; i++)
+            {
+                cbxClaimType.Items.Add(Data.claimType[i]);
+            }
             cbxSite.SelectedIndex = 0;
+            cbxClaimType.SelectedIndex = 0;
         }
 
         public  void  screenBeforeRunning()
@@ -99,6 +105,12 @@ namespace CM_WPF
                     txtURL.Text = v.siteUrl;
                 }
             }
+        }
+
+        private void cbxClaimType_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Data._claimType = cbxClaimType.SelectedIndex+1;
+ // +1 to the Username nethod To Do
         }
     }
 }
