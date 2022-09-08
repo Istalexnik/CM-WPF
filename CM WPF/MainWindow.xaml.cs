@@ -22,7 +22,7 @@ namespace CM_WPF
     public partial class MainWindow : Window
     {
         Thread thread;
-        List<Environment> envs = Environments.createEnvironments();
+        List<Environment> envs = Environment.createEnvironments();
         public MainWindow()
         {
             InitializeComponent();
