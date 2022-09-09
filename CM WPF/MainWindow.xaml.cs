@@ -45,6 +45,12 @@ namespace CM_WPF
             }
             cbxSite.SelectedIndex = 0;
             cbxClaimType.SelectedIndex = 0;
+
+            txtFirstName.Text = Data._FirstName;
+            txtLastName.Text = Data._LastName;
+            txtDOB.Text = Data._DOB;
+            txtEmployer1.Text = Data._Employer1;
+            txtEmployer2.Text = Data._Employer2;
         }
 
         public  void  screenBeforeRunning()
@@ -65,10 +71,12 @@ namespace CM_WPF
             screenBeforeRunning();
         }
 
+
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                assigningFromGUIToData();
                 screenWhileRunning();
                 thread = new Thread(()=>Base.startCreating(this));
                 thread.SetApartmentState(ApartmentState.STA);
@@ -95,13 +103,6 @@ namespace CM_WPF
         {
             Base.killChromeProcess(2);
             initialSetUpGUI();
-        }
-
-
-
-        private void cbxSite_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -132,5 +133,18 @@ namespace CM_WPF
             Data._claimType = cbxClaimType.SelectedIndex+1;
  // +1 to the Username nethod To Do
         }
+
+
+        public void assigningFromGUIToData()
+        {
+            Data._FirstName = txtFirstName.Text;
+            Data._LastName = txtLastName.Text;
+            Data._DOB = txtDOB.Text;
+            Data._Employer1 = txtEmployer1.Text;
+            Data._Employer2 = txtEmployer2.Text;
+        }
+
+
+
     }
 }
