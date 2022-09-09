@@ -32,13 +32,16 @@ namespace CM_WPF
 
         public void initialSetUpGUI()
         {
-            foreach(Environment v in envs)
+            cbxSite.Items.Clear();
+            cbxClaimType.Items.Clear();
+
+            foreach (Environment v in envs)
             {
                 cbxSite.Items.Add(v.siteName);             
             }
-            for(int i=0; i < Data.claimType.Length; i++)
+            for(int i=0; i < Data._claimTypes.Length; i++)
             {
-                cbxClaimType.Items.Add(Data.claimType[i]);
+                cbxClaimType.Items.Add(Data._claimTypes[i]);
             }
             cbxSite.SelectedIndex = 0;
             cbxClaimType.SelectedIndex = 0;
@@ -90,15 +93,30 @@ namespace CM_WPF
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-     //       Base.killChromeProcess();
+            Base.killChromeProcess(2);
+            initialSetUpGUI();
         }
 
-        private void cbxSite_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+
+
+        private void cbxSite_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+
+            private void cbxSite_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             
             foreach (Environment v in envs)
             {
-                string currentSite = cbxSite.SelectedItem.ToString();
+                string currentSite = null;
+
+                if (cbxSite.SelectedItem != null)
+                {
+                    currentSite = cbxSite.SelectedItem.ToString();
+                }
+
                 if (currentSite == v.siteName)
                 {
                     txtZIP.Text = v.zipCode;
@@ -106,6 +124,8 @@ namespace CM_WPF
                 }
             }
         }
+
+
 
         private void cbxClaimType_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
