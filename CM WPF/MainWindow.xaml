@@ -9,12 +9,12 @@
         <Button Name="btnStart" Content="Run" HorizontalAlignment="Center"  Margin="8,455,10,10" VerticalAlignment="Center" Width="530" Height="60" FontSize="25" FontWeight="Bold" BorderThickness="8" BorderBrush="Black" Click="btnStart_Click"/>
         <Button Name="btnStop" Content="Stop" HorizontalAlignment="Center"  Margin="8,455,10,10" VerticalAlignment="Center" Width="530" Height="60" FontSize="25" FontWeight="Bold" BorderThickness="8" BorderBrush="Black" Click="btnStop_Click" Visibility="Hidden"/>
         <Button Name="btnReset" Content="RESET" HorizontalAlignment="Left"  Margin="400,280,10,10" VerticalAlignment="Top" Width="120" Height="25" Click="btnReset_Click" />
-        <Button Name="btnStopAt" Content="Select a page to pause on" HorizontalAlignment="Center"  Margin="10,330,10,0" VerticalAlignment="Center" Width="500" Height="30" />
+        <Button Name="btnStopAt" Content="Select a page to pause on" HorizontalAlignment="Center"  Margin="10,330,10,0" VerticalAlignment="Center" Width="500" Height="30" Click="btnStopAt_Click" />
 
 
         <ComboBox Name="cbxSite" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbxSite_SelectionChanged" >
         </ComboBox>
-        <ComboBox Name="cbxClaimType" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbxClaimType_SelectionChanged">
+        <ComboBox Name="cbxClaimType" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Width="120" >
         </ComboBox>
         <Label Name="lblSSN" Content="SSN:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <Label Name="lblFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
@@ -43,7 +43,7 @@
         <TextBox Name="txtURL" Text="" HorizontalAlignment="Left" Height="23" Margin="100,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="430"/>
 
         <TextBox Name="txtDataPane" Text="" HorizontalAlignment="Left" Height="173" Margin="265,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277"/>
-        <CheckBox Name="chbEmployer2" HorizontalAlignment="Left" Margin="10,226.5,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="chbSecondEmployer" HorizontalAlignment="Left" Margin="10,226.5,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace CM_WPF
         List<Environment> envs = Environment.createEnvironments();
 
         public MainWindow()
-        {
+        {       
             InitializeComponent();
             initialSetUpGUI();
         }
@@ -46,11 +47,18 @@ namespace CM_WPF
             cbxSite.SelectedIndex = 0;
             cbxClaimType.SelectedIndex = 0;
 
+            
+            txtSSN.Text = Data._newSSN();
             txtFirstName.Text = Data._FirstName;
             txtLastName.Text = Data._LastName;
             txtDOB.Text = Data._DOB;
             txtEmployer1.Text = Data._Employer1;
+            txtWorkedFrom1.Text = Data._WorkedFrom1;
+            txtWorkedTo1.Text = Data._WorkedTo1;
             txtEmployer2.Text = Data._Employer2;
+            txtWorkedFrom2.Text = Data._WorkedFrom2;
+            txtWorkedTo2.Text = Data._WorkedTo2;
+            chbSecondEmployer.IsChecked = Data._SecondEmployer;
         }
 
         public  void  screenBeforeRunning()
@@ -128,23 +136,30 @@ namespace CM_WPF
 
 
 
-        private void cbxClaimType_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            Data._claimType = cbxClaimType.SelectedIndex+1;
- // +1 to the Username nethod To Do
-        }
-
-
         public void assigningFromGUIToData()
         {
+            Data._SSN = txtSSN.Text;
             Data._FirstName = txtFirstName.Text;
             Data._LastName = txtLastName.Text;
             Data._DOB = txtDOB.Text;
             Data._Employer1 = txtEmployer1.Text;
+            Data._WorkedFrom1 = txtWorkedFrom1.Text;
+            Data._WorkedTo1 = txtWorkedTo1.Text;
             Data._Employer2 = txtEmployer2.Text;
+            Data._WorkedFrom2 = txtWorkedFrom2.Text;
+            Data._WorkedTo2 = txtWorkedTo2.Text;
+            Data._SecondEmployer = (bool)chbSecondEmployer.IsChecked;
+            Data._site = cbxSite.SelectedItem.ToString();
+            Data._URL = txtURL.Text;
+            Data._ZIP = txtZIP.Text;
+            Data._claimType = (int)cbxClaimType.SelectedIndex+1;
+            Data._newLogin();
+
         }
 
-
-
+        private void btnStopAt_Click(object sender, RoutedEventArgs e)
+        {
+       
+        }
     }
 }

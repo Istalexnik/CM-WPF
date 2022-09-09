@@ -20,6 +20,7 @@ namespace CM_WPF
         {
             try
             {
+                Data._printing();
                 createClaim(mw);
             }
             catch (Exception ex)
@@ -31,6 +32,7 @@ namespace CM_WPF
             }
             finally
             {
+                mw.Dispatcher.Invoke(() => { mw.txtSSN.Text = Data._newSSN(); });          
             }
         }
 
@@ -42,6 +44,7 @@ namespace CM_WPF
             chromeOptions.AddArguments(new List<string>() { "no-sandbox" });
 
             driver = new ChromeDriver(chromeDriverService, chromeOptions);
+
             driver.Url = "https://uat-app-vos47000000.geosolinc.com/vosnet/default.aspx";
             
             mw.Dispatcher.Invoke(() => { mw.screenAfterRunning(); });
